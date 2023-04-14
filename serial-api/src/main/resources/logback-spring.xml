@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProperty name="product" source="serial.app.product"/>
+    <springProperty name="group" source="serial.app.group"/>
+    <springProperty name="appName" source="spring.application.name"/>
+
+    <include resource="logback-common/common.xml"/>
+</configuration>

@@ -1,0 +1,110 @@
+# 项目相关配置
+serial:
+  app:
+    name: serial
+    appId: ${spring.application.name}
+    product: rdcenter
+    group: basic-arch
+    app: ${spring.application.name}
+    perflog: 3
+    dataCenterId: 1 # 数据中心ID
+    serverPort: 15001 # 服务端口
+    zk: ${zk.server}
+#应用线程池配置
+threadpool:
+  config:
+    enable: true
+    core-pool-size: 10
+    max-pool-size: 100
+    queue-capacity: 1000
+    keep-alive-seconds: 300
+
+
+nacos:
+  url: ${spring.cloud.nacos.config.server-addr}
+  namespace: ${spring.cloud.nacos.config.namespace}
+  username: ${spring.cloud.nacos.config.username}
+  password: ${spring.cloud.nacos.config.password}
+
+#zk配置
+zk:
+  server: zookeeper.local.com:2181
+  client: zookeeper.local.com:2181
+#日志配置
+logging:
+  config: classpath:logback-spring.xml
+# Spring配置
+spring:
+  devtools:
+    restart:
+      enabled: true
+  main:
+    allow-bean-definition-overriding: false
+  shardingsphere:
+    props:
+      sql:
+        show: false
+    sharding:
+      master-slave-rules:
+        master0:
+          master-data-source-name: master0
+          slave-data-source-names:
+            - master0slave
+          load-balance-algorithm-type: ROUND_ROBIN
+      default-data-source-name: master0
+    data-source:
+      names: master0,master0slave
+      master0:
+        driver-class-name: ${jdbc.driver-class-name}
+        type: ${jdbc.data-source-type}
+        jdbc-url: jdbc:mysql://${jdbc.url}:3307/arch_common${jdbc.defaultParams}
+        username: ${jdbc.w-account}
+        password: ${jdbc.w-password}
+        minimum-idle: ${jdbc.minimum-idle}
+        maximum-pool-size: ${jdbc.maximum-pool-size}
+        connection-timeout: ${jdbc.connection-timeout}
+      master0slave:
+        driver-class-name: ${jdbc.driver-class-name}
+        type: ${jdbc.data-source-type}
+        jdbc-url: jdbc:mysql://${jdbc.url}:3308/arch_common${jdbc.defaultParams}
+        username: ${jdbc.r-account}
+        password: ${jdbc.r-password}
+        minimum-idle: ${jdbc.minimum-idle}
+        maximum-pool-size: ${jdbc.maximum-pool-size}
+        connection-timeout: ${jdbc.connection-timeout}
+#mybatis config
+mybatis:
+  typeAliasesPackage: com.gzs.learn.serial.model,com.gzs.learn.serial.inf
+  mapperLocations: classpath:mybatis/mappers/*Mapper.xml
+  configLocation: classpath:mybatis/mybatis-config.xml
+
+jdbc:
+  url: mysql.local.com
+  driver-class-name: com.mysql.cj.jdbc.Driver
+  data-source-type: com.zaxxer.hikari.HikariDataSource
+  defaultParams: ?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+  w-account: w_account
+  w-password: qvYx8OaG
+  r-account: r_account
+  r-password: 63ucwRVV
+  minimum-idle: 5
+  maximum-pool-size: 50
+  connection-timeout: 10000
+  validation-query: select 1
+
+server:
+  port: 6080
+
+feature:
+  toggle:
+    test-toggle: open
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus' # 暴露/actuator/prometheus
+  metrics:
+    tags:
+      application: ${spring.application.name}
+

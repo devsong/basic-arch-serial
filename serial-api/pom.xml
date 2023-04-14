@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>io.github.devsong.serial</groupId>
+        <artifactId>basic-arch-serial</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <groupId>io.github.devsong.serial</groupId>
+    <artifactId>serial-api</artifactId>
+    <modelVersion>4.0.0</modelVersion>
+    <name>${project.artifactId}</name>
+    <url>http://maven.apache.org</url>
+    <packaging>jar</packaging>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.devsong.serial</groupId>
+            <artifactId>serial-service</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-access</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.mweirauch</groupId>
+            <artifactId>micrometer-jvm-extras</artifactId>
+        </dependency>
+
+
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <!--        <plugins>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.springframework.boot</groupId>-->
+        <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--                <version>2.4.7</version>-->
+        <!--                <configuration>-->
+        <!--                    <fork>true</fork>-->
+        <!--                </configuration>-->
+        <!--                <executions>-->
+        <!--                    <execution>-->
+        <!--                        <goals>-->
+        <!--                            <goal>repackage</goal>-->
+        <!--                        </goals>-->
+        <!--                    </execution>-->
+        <!--                </executions>-->
+        <!--            </plugin>-->
+
+        <!--            <plugin>-->
+        <!--                <groupId>org.apache.maven.plugins</groupId>-->
+        <!--                <artifactId>maven-war-plugin</artifactId>-->
+        <!--                <version>3.3.2</version>-->
+        <!--                <configuration>-->
+        <!--                    <failOnMissingWebXml>false</failOnMissingWebXml>-->
+        <!--                    <warName>${project.artifactId}</warName>-->
+        <!--                </configuration>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
+    </build>
+
+
+</project>

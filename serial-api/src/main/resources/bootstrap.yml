@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: ${APPLICATION_NAME:basic-arch-serial-api}
+  cloud:
+    config:
+      enabled: true
+      discovery:
+        enabled: true
+    nacos:
+      config:
+        file-extension: yaml
+        server-addr: ${NACOS_SERVER_ADDR:localhost:8848}
+        #server-addr: nacos.local.com:8848
+        namespace: ${NACOS_NAMESPACE:0bcc1a9f-bc75-4926-a10d-2f7fe8c68a89}
+        username: ${NACOS_USERNAME:nacos}
+        password: ${NACOS_PASSWORD:nacos}
+        group: DEFAULT_GROUP
+        enabled: ${NACOS_CONFIG_ENABLED:true}
+        refresh-enabled: true
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        username: ${spring.cloud.nacos.config.username}
+        password: ${spring.cloud.nacos.config.password}
+        group: DEFAULT_GROUP

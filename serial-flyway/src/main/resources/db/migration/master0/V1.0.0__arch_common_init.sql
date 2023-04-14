@@ -1,0 +1,33 @@
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+SET NAMES utf8mb4;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE='NO_AUTO_VALUE_ON_ZERO', SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+CREATE TABLE `serial_alloc`
+(
+    `biz_tag`     varchar(128) NOT NULL DEFAULT '' COMMENT '业务Key',
+    `max_id`      bigint       NOT NULL DEFAULT '1' COMMENT '最大已使用ID',
+    `step`        int          NOT NULL COMMENT '步长',
+    `random_len`  int          NOT NULL DEFAULT '0' COMMENT '尾部随机数位数',
+    `description` varchar(256) NOT NULL DEFAULT '' COMMENT '描述',
+    `status`      int          NOT NULL DEFAULT '0' COMMENT '状态(0 正常 1 禁用 2 删除)',
+    `create_time` datetime     NOT NULL DEFAULT '2000-01-01 00:00:00' COMMENT '创建时间',
+    `update_time` timestamp    NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`biz_tag`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='序列号';
+LOCK TABLES `serial_alloc` WRITE;
+
+insert into `serial_alloc` (biz_tag, max_id, step, random_len, description, status, create_time, update_time)
+values ('order', 10014000, 1000, 0, '订单测试', 0, '2000-01-01 00:00:00', '2021-03-11 15:22:00'),
+       ('test', 10009000, 1000, 0, '订单测试', 0, '2000-01-01 00:00:00', '2022-04-11 21:15:16');
+UNLOCK TABLES;
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.github.devsong.serial.mapper.SerialAllocMapper">
+    <resultMap id="BaseResultMap" type="io.github.devsong.serial.entity.po.SerialAlloc">
+        <id column="biz_tag" jdbcType="VARCHAR" property="bizTag" />
+        <result column="max_id" jdbcType="BIGINT" property="maxId" />
+        <result column="step" jdbcType="INTEGER" property="step" />
+        <result column="random_len" jdbcType="INTEGER" property="randomLen" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="status" jdbcType="INTEGER" property="status" />
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    </resultMap>
+    
+    <sql id="Base_Column_List">
+        biz_tag, max_id, step, random_len, description, status, create_time, update_time
+    </sql>
+
+    <update id="updateMaxId" parameterType="java.lang.String">
+        UPDATE serial_alloc SET max_id = max_id + step WHERE biz_tag = #{bizTag}
+    </update>
+    
+    <update id="updateMaxIdByCustomStep" parameterType="java.util.Map">
+        UPDATE serial_alloc SET max_id = max_id + #{step} WHERE biz_tag = #{bizTag}
+    </update>
+    
+    <select id="search" parameterType="SegmentSearchDto" resultMap="BaseResultMap">
+        SELECT
+            <include refid="Base_Column_List"/>
+        FROM 
+            serial_alloc 
+        WHERE
+            status = #{search.status}
+            <if test="search.key != null and search.key != ''">
+                 and biz_tag like concat('%', #{search.key},'%')
+            </if>
+    </select>
+</mapper>
