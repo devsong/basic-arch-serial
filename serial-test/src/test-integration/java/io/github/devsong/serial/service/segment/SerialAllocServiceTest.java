@@ -16,7 +16,6 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@Disabled
 class SerialAllocServiceTest extends IntegrationTestBase {
 
     @ParameterizedTest

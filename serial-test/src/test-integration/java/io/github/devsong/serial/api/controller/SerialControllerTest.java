@@ -7,6 +7,5 @@ import org.junit.jupiter.api.Disabled;
  * @author zhisong.guan
  * @date 2022/11/1 14:03
  */
-@Disabled
 class SerialControllerTest extends IntegrationTestBase {
 }

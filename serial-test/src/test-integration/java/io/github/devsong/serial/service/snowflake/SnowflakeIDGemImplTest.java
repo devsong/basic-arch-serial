@@ -16,7 +16,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @author zhisong.guan
  * @date 2022/11/3 10:34
  */
-@Disabled
 @Slf4j
 class SnowflakeIDGemImplTest extends IntegrationTestBase {
 
