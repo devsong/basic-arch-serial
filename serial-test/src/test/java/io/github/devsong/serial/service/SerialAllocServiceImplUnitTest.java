@@ -3,6 +3,7 @@ package io.github.devsong.serial.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
+import io.github.devsong.base.test.ResourceParseUtil;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,7 +21,6 @@ import io.github.devsong.serial.inf.dto.SerialAllocDto;
 import io.github.devsong.serial.inf.dto.SerialStatus;
 import io.github.devsong.serial.mapper.SerialAllocMapper;
 import io.github.devsong.serial.service.segment.impl.SerialAllocServiceImpl;
-import io.github.devsong.serial.util.ResourceParseUtil;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

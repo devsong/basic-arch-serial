@@ -1,36 +1,11 @@
 package io.github.devsong.serial.api.controller;
 
-import static org.hamcrest.Matchers.hasSize;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Objects;
-
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import org.mockito.ArgumentCaptor;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
-import org.springframework.http.HttpStatus;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
 import com.google.common.collect.Lists;
-
 import io.github.devsong.base.common.util.JsonUtil;
 import io.github.devsong.base.entity.PageResponseDto;
 import io.github.devsong.base.entity.ResponseCode;
-import io.github.devsong.serial.api.ControllerTestBase;
+import io.github.devsong.base.test.ControllerBaseTest;
+import io.github.devsong.base.test.NotMatcher;
 import io.github.devsong.serial.config.properties.FeatureToggleProperties;
 import io.github.devsong.serial.entity.common.Result;
 import io.github.devsong.serial.entity.common.Status;
@@ -44,13 +19,33 @@ import io.github.devsong.serial.service.segment.SerialAllocService;
 import io.github.devsong.serial.service.segment.impl.SegmentIDGenImpl;
 import io.github.devsong.serial.service.snowflake.SnowflakeIDGenImpl;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Objects;
+
+import static org.hamcrest.Matchers.hasSize;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * @author zhisong.guan
  * @date 2022/11/2 17:48
  */
 @Slf4j
-class SerialControllerUnitTest extends ControllerTestBase {
+class SerialControllerUnitTest extends ControllerBaseTest {
     long snowflakeId = 424849292519567361L;
     @Mock
     SerialAllocService serialAllocService;
@@ -295,8 +290,8 @@ class SerialControllerUnitTest extends ControllerTestBase {
         mockMvc.perform(post("/serial/add-serial-alloc")
                         .headers(jsonHeaders)
                         .content(Objects.requireNonNull(JsonUtil.toJSONString(serialAllocDto)))
-                ).andExpect(status().is(new NotMatcher(HttpStatus.OK.value())))
-                .andExpect(jsonPath("$.code").value(new NotMatcher(ResponseCode.SUCCESS.getCode())))
+                ).andExpect(status().is(new NotMatcher<Integer>(HttpStatus.OK.value())))
+                .andExpect(jsonPath("$.code").value(new NotMatcher<Integer>(ResponseCode.SUCCESS.getCode())))
         ;
     }
 }

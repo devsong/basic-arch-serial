@@ -1,12 +1,11 @@
 package io.github.devsong.serial.service.segment;
 
 import io.github.devsong.base.entity.PageResponseDto;
-import io.github.devsong.serial.IntegrationTestBase;
+import io.github.devsong.serial.SerialIntegrationBaseTest;
+import io.github.devsong.serial.entity.po.SerialAlloc;
 import io.github.devsong.serial.inf.dto.SegmentSearchDto;
 import io.github.devsong.serial.inf.dto.SerialAllocDto;
-import io.github.devsong.serial.entity.po.SerialAlloc;
-import io.github.devsong.serial.util.ResourceParseUtil;
-import org.junit.jupiter.api.Disabled;
+import io.github.devsong.base.test.ResourceParseUtil;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -16,7 +15,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SerialAllocServiceTest extends IntegrationTestBase {
+class SerialAllocServiceTest extends SerialIntegrationBaseTest {
 
     @ParameterizedTest
     @ValueSource(booleans = {true, false})

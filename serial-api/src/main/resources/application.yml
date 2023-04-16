@@ -74,7 +74,7 @@ spring:
         connection-timeout: ${jdbc.connection-timeout}
 #mybatis config
 mybatis:
-  typeAliasesPackage: com.gzs.learn.serial.model,com.gzs.learn.serial.inf
+  typeAliasesPackage: io.github.devsong.serial.entity,io.github.devsong.serial.inf
   mapperLocations: classpath:mybatis/mappers/*Mapper.xml
   configLocation: classpath:mybatis/mybatis-config.xml
 

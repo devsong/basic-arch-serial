@@ -21,8 +21,6 @@
     </properties>
 
     <dependencies>
-
-
         <dependency>
             <groupId>io.github.devsong.serial</groupId>
             <artifactId>serial-api</artifactId>
@@ -76,10 +74,10 @@
                     <excludes>
                         <exclude>io/github/devsong/base/entity/**/*</exclude>
                         <exclude>io/github/devsong/base/log/**/*</exclude>
-                        <exclude>io/github/devsong/serial/mapper/*</exclude>
                         <exclude>io/github/devsong/serial/entity/**/*</exclude>
-                        <exclude>io/github/devsong/serial/ms/*</exclude>
                         <exclude>io/github/devsong/serial/inf/**/*</exclude>
+                        <exclude>io/github/devsong/serial/mapper/*</exclude>
+                        <exclude>io/github/devsong/serial/ms/*</exclude>
                         <exclude>io/github/devsong/serial/common/*</exclude>
                         <exclude>io/github/devsong/serial/config/**/*</exclude>
                         <exclude>io/github/devsong/serial/service/snowflake/*</exclude>
@@ -87,6 +85,8 @@
                         <exclude>io/github/devsong/serial/util/*</exclude>
                         <exclude>io/github/devsong/serial/aspect/*</exclude>
                         <exclude>io/github/devsong/serial/exception/*</exclude>
+                        <exclude>io/github/devsong/serial/api/*.class</exclude>
+                        <exclude>io/github/devsong/serial/*.class</exclude>
                     </excludes>
                 </configuration>
                 <executions>
@@ -135,7 +135,6 @@
                     </execution>
                 </executions>
             </plugin>
-
         </plugins>
     </build>
 

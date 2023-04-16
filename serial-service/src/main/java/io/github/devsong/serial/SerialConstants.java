@@ -1,11 +1,13 @@
 package io.github.devsong.serial;
 
+import io.github.devsong.base.entity.GlobalConstant;
+
 public interface SerialConstants {
-    String SYSTEM_PREFIX = "com.gzs.learn.serial";
+    String SYSTEM_PREFIX = GlobalConstant.SYSTEM_PACKAGE_PREFIX+".serial";
 
     long MAX_RECORDS_LIMIT = 5000L;
 
-    String MYBATIS_HANDLER_PACKAGE = "com.gzs.learn.common.convert.mybatis";
+    String MYBATIS_HANDLER_PACKAGE = GlobalConstant.SYSTEM_PACKAGE_PREFIX+".base.common.convert.mybatis";
 
     public static class SysMajorCode {
         public static final int MAJOR_5XX = 500000;

@@ -1,11 +1,10 @@
 package io.github.devsong.serial.api.controller;
 
-import io.github.devsong.serial.IntegrationTestBase;
-import org.junit.jupiter.api.Disabled;
+import io.github.devsong.serial.SerialIntegrationBaseTest;
 
 /**
  * @author zhisong.guan
  * @date 2022/11/1 14:03
  */
-class SerialControllerTest extends IntegrationTestBase {
+class SerialControllerTest extends SerialIntegrationBaseTest {
 }
