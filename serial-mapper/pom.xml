@@ -8,10 +8,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.devsong.serial</groupId>
     <artifactId>serial-mapper</artifactId>
     <name>${project.artifactId}</name>
-    <url>http://maven.apache.org</url>
+    <url>https://maven.apache.org</url>
     <packaging>jar</packaging>
 
     <properties>

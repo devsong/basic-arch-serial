@@ -27,7 +27,7 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @Slf4j
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SerialApiApp.class, webEnvironment = RANDOM_PORT)
-@ComponentScan(basePackageClasses = {IntegrationBaseTest.class, SerialApiApp.class})
+@ComponentScan(basePackageClasses = {SerialIntegrationBaseTest.class, SerialApiApp.class})
 @EnableAutoConfiguration(exclude = {
         DataSourceAutoConfiguration.class,
         SpringBootConfiguration.class,

@@ -9,12 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.devsong.serial</groupId>
     <artifactId>serial-flyway</artifactId>
     <name>${project.artifactId}</name>
-
+    <url>https://maven.apache.org</url>
     <properties>
         <flyway.version>9.16.0</flyway.version>
+        <skip_maven_install>true</skip_maven_install>
+        <skip_maven_deploy>true</skip_maven_deploy>
     </properties>
 
     <dependencies>
@@ -53,4 +54,28 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.7</version>
+                <configuration>
+                    <mainClass>io.github.devsong.serial.flyway.RunFlywayApp</mainClass>
+                    <fork>true</fork>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>exec</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

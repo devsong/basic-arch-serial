@@ -6,11 +6,11 @@
         <artifactId>basic-arch-serial</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
-    <groupId>io.github.devsong.serial</groupId>
+
     <artifactId>serial-service</artifactId>
     <modelVersion>4.0.0</modelVersion>
     <name>${project.artifactId}</name>
-    <url>http://maven.apache.org</url>
+    <url>https://maven.apache.org</url>
     <packaging>jar</packaging>
 
     <properties>
@@ -128,43 +128,4 @@
             <artifactId>redisson</artifactId>
         </dependency>
     </dependencies>
-
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-
-                    <compilerArgument>-parameters</compilerArgument>
-                    <compilerArguments>
-                    </compilerArguments>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.projectlombok</groupId>
-                            <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
-                        </path>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${mapstruct.version}</version>
-                        </path>
-                    </annotationProcessorPaths>
-                </configuration>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>
