@@ -2,7 +2,7 @@ package io.github.devsong.serial.service.snowflake;
 
 
 import io.github.devsong.base.common.util.JsonUtil;
-import io.github.devsong.serial.SerialIntegrationBaseTest;
+import io.github.devsong.serial.SerialIntegrationBase;
 import io.github.devsong.serial.entity.common.Result;
 import io.github.devsong.serial.inf.dto.SerialSnowflakeInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
  * @date 2022/11/3 10:34
  */
 @Slf4j
-class SnowflakeIDGemImplTest extends SerialIntegrationBaseTest {
+class SnowflakeIDGemImplTest extends SerialIntegrationBase {
 
     @Test
     void should_get_snowflake_id_success() {

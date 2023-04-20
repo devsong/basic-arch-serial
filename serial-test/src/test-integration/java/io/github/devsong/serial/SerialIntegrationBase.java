@@ -27,14 +27,14 @@ import static org.springframework.boot.test.context.SpringBootTest.WebEnvironmen
 @Slf4j
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = SerialApiApp.class, webEnvironment = RANDOM_PORT)
-@ComponentScan(basePackageClasses = {SerialIntegrationBaseTest.class, SerialApiApp.class})
+@ComponentScan(basePackageClasses = {SerialIntegrationBase.class, SerialApiApp.class})
 @EnableAutoConfiguration(exclude = {
         DataSourceAutoConfiguration.class,
         SpringBootConfiguration.class,
         FlywayAutoConfiguration.class
 })
 @ActiveProfiles(GlobalConstant.PROFILE_TEST_ENV)
-public class SerialIntegrationBaseTest extends IntegrationBaseTest {
+public class SerialIntegrationBase extends IntegrationBaseTest {
     private static RedisServer REDIS_SERVER = new RedisServer(TestConstants.REDIS_EMBEDDED_PORT);
 
     static {

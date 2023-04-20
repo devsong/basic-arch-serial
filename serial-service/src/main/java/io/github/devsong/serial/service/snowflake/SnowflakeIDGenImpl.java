@@ -1,22 +1,6 @@
 package io.github.devsong.serial.service.snowflake;
 
-import static io.github.devsong.serial.service.snowflake.SnowflakeConst.DATA_CENTER_ID_BITS;
-import static io.github.devsong.serial.service.snowflake.SnowflakeConst.DATA_CENTER_ID_SHIFT;
-import static io.github.devsong.serial.service.snowflake.SnowflakeConst.SEQUENCE_BITS;
-import static io.github.devsong.serial.service.snowflake.SnowflakeConst.TIMESTAMP_SHIFT;
-import static io.github.devsong.serial.service.snowflake.SnowflakeConst.WORKER_ID_BITS;
-import static io.github.devsong.serial.service.snowflake.SnowflakeConst.WORKER_ID_SHIFT;
-
-import java.util.Date;
-import java.util.concurrent.ThreadLocalRandom;
-
-import javax.annotation.PostConstruct;
-
-import org.apache.commons.lang3.time.DateFormatUtils;
-import org.springframework.stereotype.Component;
-
 import com.google.common.base.Preconditions;
-
 import io.github.devsong.serial.config.properties.SerialProperties;
 import io.github.devsong.serial.entity.common.Result;
 import io.github.devsong.serial.entity.common.Status;
@@ -24,6 +8,14 @@ import io.github.devsong.serial.inf.dto.SerialSnowflakeInfo;
 import io.github.devsong.serial.service.IDGen;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.time.DateFormatUtils;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.util.Date;
+import java.util.concurrent.ThreadLocalRandom;
+
+import static io.github.devsong.serial.service.snowflake.SnowflakeConst.*;
 
 /**
  * @author zhisong.guan

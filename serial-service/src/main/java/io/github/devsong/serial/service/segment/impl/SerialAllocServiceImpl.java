@@ -1,18 +1,10 @@
 package io.github.devsong.serial.service.segment.impl;
 
-import java.util.Date;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
-
 import io.github.devsong.base.entity.PageResponseDto;
 import io.github.devsong.base.entity.PageResponseDto.PageResponse;
 import io.github.devsong.base.entity.enums.StatusEnums;
@@ -25,6 +17,12 @@ import io.github.devsong.serial.mapper.SerialAllocMapper;
 import io.github.devsong.serial.ms.SerialAllocMS;
 import io.github.devsong.serial.service.segment.SerialAllocService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Date;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author zhisong.guan

@@ -1,9 +1,8 @@
 package io.github.devsong.serial.config.properties;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
-
-import lombok.Data;
 
 /**
  * @author zhisong.guan

@@ -1,10 +1,9 @@
 package io.github.devsong.serial.ms;
 
+import io.github.devsong.serial.config.properties.FeatureToggleProperties;
 import org.mapstruct.Mapper;
 import org.mapstruct.control.DeepClone;
 import org.mapstruct.factory.Mappers;
-
-import io.github.devsong.serial.config.properties.FeatureToggleProperties;
 
 /**
  * @author zhisong.guan

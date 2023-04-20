@@ -1,19 +1,17 @@
 package io.github.devsong.serial.config;
 
-import static io.github.devsong.base.entity.GlobalConstant.DATE_FORMAT;
-import static io.github.devsong.base.entity.GlobalConstant.DATE_TIME_FORMAT;
-
-import java.time.format.DateTimeFormatter;
-
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import io.github.devsong.base.common.util.SpringContextUtil;
+import io.github.devsong.base.log.LogInterceptor;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import java.time.format.DateTimeFormatter;
 
-import io.github.devsong.base.common.util.SpringContextUtil;
-import io.github.devsong.base.log.LogInterceptor;
+import static io.github.devsong.base.entity.GlobalConstant.DATE_FORMAT;
+import static io.github.devsong.base.entity.GlobalConstant.DATE_TIME_FORMAT;
 
 @Configuration
 public class SerialConfig {

@@ -1,15 +1,16 @@
 package io.github.devsong.serial.service.snowflake;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-
+import com.google.common.base.Charsets;
+import com.google.common.collect.Maps;
+import io.github.devsong.base.common.util.IpUtil;
+import io.github.devsong.base.common.util.JsonUtil;
+import io.github.devsong.serial.config.properties.SerialProperties;
+import io.github.devsong.serial.exception.SerialException;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.apache.curator.RetryPolicy;
 import org.apache.curator.framework.CuratorFramework;
@@ -20,18 +21,15 @@ import org.apache.zookeeper.data.Stat;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.stereotype.Component;
 
-import com.google.common.base.Charsets;
-import com.google.common.collect.Maps;
-
-import io.github.devsong.base.common.util.IpUtil;
-import io.github.devsong.base.common.util.JsonUtil;
-import io.github.devsong.serial.config.properties.SerialProperties;
-import io.github.devsong.serial.exception.SerialException;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author zhisong.guan

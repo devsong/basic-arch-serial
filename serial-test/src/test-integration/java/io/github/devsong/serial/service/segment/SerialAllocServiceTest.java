@@ -1,7 +1,7 @@
 package io.github.devsong.serial.service.segment;
 
 import io.github.devsong.base.entity.PageResponseDto;
-import io.github.devsong.serial.SerialIntegrationBaseTest;
+import io.github.devsong.serial.SerialIntegrationBase;
 import io.github.devsong.serial.entity.po.SerialAlloc;
 import io.github.devsong.serial.inf.dto.SegmentSearchDto;
 import io.github.devsong.serial.inf.dto.SerialAllocDto;
@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class SerialAllocServiceTest extends SerialIntegrationBaseTest {
+class SerialAllocServiceTest extends SerialIntegrationBase {
 
     @ParameterizedTest
     @ValueSource(booleans = {true, false})

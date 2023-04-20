@@ -6,27 +6,19 @@ import io.github.devsong.base.test.ArchUnit;
 
 @AnalyzeClasses(packages = SerialConstants.SYSTEM_PREFIX, importOptions = {ImportOption.OnlyIncludeTests.class})
 class SerialArchUnit extends ArchUnit {
+    static String CONTROLLER_PACKAGE_LAYER = SerialConstants.SYSTEM_PREFIX + ".api.controller";
+    static String SERVICE_PACKAGE_LAYER = SerialConstants.SYSTEM_PREFIX + ".service..";
+    static String MAPPER_PACKAGE_LAYER = SerialConstants.SYSTEM_PREFIX + ".mapper";
+
+    static String CONTROLLER = "controller", SERVICE = "service", MAPPER = "mapper";
 
 //    @ArchTest
-//    private final ArchRule test_class_should_be_package_private =
-//            classes().that()
-//                    .haveSimpleNameEndingWith("Test")
-//                    .should()
-//                    .bePackagePrivate();
-//
-//    @ArchTest
-//    private final ArchRule test_method_should_be_package_private =
-//            methods()
-//                    .that()
-//                    .haveNameNotStartingWith("validate_")
-//                    .and()
-//                    .areDeclaredInClassesThat()
-//                    .haveSimpleNameEndingWith("Test")
-//                    .and()
-//                    .areAnnotatedWith(Test.class)
-//                    .or()
-//                    .areAnnotatedWith(ParameterizedTest.class)
-//                    .should()
-//                    .bePackagePrivate();
-
+//    protected final ArchRule layer_dependencies_are_respected = layeredArchitecture()
+//            .layer(CONTROLLER).definedBy(CONTROLLER_PACKAGE_LAYER)
+//            .layer(SERVICE).definedBy(SERVICE_PACKAGE_LAYER)
+//            .layer(MAPPER).definedBy(MAPPER_PACKAGE_LAYER)
+//            .whereLayer(CONTROLLER).mayNotBeAccessedByAnyLayer()
+//            .whereLayer(SERVICE).mayOnlyBeAccessedByLayers(SERVICE, CONTROLLER)
+//            .whereLayer("Domain").mayOnlyBeAccessedByLayers("Application", "Representation")
+//    ;
 }

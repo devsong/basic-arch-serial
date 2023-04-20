@@ -1,11 +1,10 @@
 package io.github.devsong.serial.ms;
 
+import io.github.devsong.serial.entity.po.SerialAlloc;
+import io.github.devsong.serial.inf.dto.SerialAllocDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
-
-import io.github.devsong.serial.entity.po.SerialAlloc;
-import io.github.devsong.serial.inf.dto.SerialAllocDto;
 
 @Mapper
 public interface SerialAllocMS {

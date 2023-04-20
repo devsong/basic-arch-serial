@@ -1,10 +1,9 @@
 package io.github.devsong.serial.config.properties;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
-
 import io.github.devsong.base.common.AppCoordinate;
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author zhisong.guan

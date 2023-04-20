@@ -1,11 +1,10 @@
 package io.github.devsong.serial.config;
 
+import io.github.devsong.base.log.LogInterceptor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
-import io.github.devsong.base.log.LogInterceptor;
-import lombok.RequiredArgsConstructor;
 
 /**
  * @author zhisong.guan
