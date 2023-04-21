@@ -1,0 +1,5 @@
+
+#zk配置
+zk:
+  server: localhost:22181
+  client: ${zk.server}

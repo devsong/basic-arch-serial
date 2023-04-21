@@ -4,11 +4,13 @@ package io.github.devsong.serial;
 import io.github.devsong.base.entity.GlobalConstant;
 import io.github.devsong.base.test.IntegrationBaseTest;
 import io.github.devsong.base.test.TestConstants;
+import io.github.devsong.serial.config.StandaloneZKServer;
 import io.github.devsong.serial.mapper.SerialAllocMapper;
 import io.github.devsong.serial.service.segment.SerialAllocService;
 import io.github.devsong.serial.service.snowflake.SnowflakeIDGenImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shardingsphere.shardingjdbc.spring.boot.SpringBootConfiguration;
+import org.apache.zookeeper.server.ZooKeeperServerMain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +41,9 @@ public class SerialIntegrationBase extends IntegrationBaseTest {
 
     static {
         REDIS_SERVER.start();
+        new Thread(() -> {
+            StandaloneZKServer.startEmbeddedZkServer(TestConstants.ZOOKEEPER_PORT);
+        }).start();
     }
 
     ///////////////////////////////////////
